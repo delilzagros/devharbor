@@ -1,0 +1,32 @@
+name: Bekçi nabız kontrolü
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # her 30 dakikada bir
+  workflow_dispatch:          # elle de çalıştırılabilir
+
+permissions:
+  contents: write             # yalnız aylık "canlı tut" commit'i için
+
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Nabzı kontrol et
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          KAYIT_KANAL_ID: ${{ secrets.KAYIT_KANAL_ID }}
+          SAHIP_ID: ${{ secrets.SAHIP_ID }}
+        run: python3 nabiz_kontrol.py
+      # GitHub, 60 gün hareketsiz depolarda zamanlanmış işleri kapatır; ayda bir boş commit bunu önler
+      - name: Canlı tut (ayın 1'i)
+        if: github.event_name == 'schedule'
+        run: |
+          if [ "$(date -u +%d)" = "01" ] && [ "$(date -u +%H)" = "00" ] && [ "$(date -u +%M)" -lt 30 ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -m "Canlı tut"
+            git push
+          fi

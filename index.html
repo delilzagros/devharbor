@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevHarbor · Global Developer Community</title>
+  <meta name="description" content="DevHarbor is a global Telegram community for developers and programmers. Ask, share, hire and build together, in a safe, moderated harbor.">
+  <meta property="og:title" content="DevHarbor · Global Developer Community">
+  <meta property="og:description" content="Ask, share, hire and build together. Verified joins, malware-scanned files.">
+  <meta property="og:image" content="logo.png">
+  <meta name="theme-color" content="#08162f">
+  <link rel="icon" href="logo.png">
+  <style>
+    :root {
+      --bg: #08162f; --bg2: #0b2140; --kart: rgba(255,255,255,.04); --cizgi: rgba(255,255,255,.09);
+      --yazi: #e6f1f7; --soluk: #9db3c8; --vurgu: #5eead4; --vurgu2: #0c9496; --turuncu: #fdba74;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--yazi); line-height: 1.6;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 85% -10%, rgba(12,148,150,.35), transparent 60%),
+                  radial-gradient(900px 500px at -10% 110%, rgba(94,234,212,.10), transparent 60%), var(--bg);
+      min-height: 100vh;
+    }
+    a { color: inherit; }
+    .kap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+    .marka { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 20px; text-decoration: none; }
+    .marka img { width: 40px; height: 40px; border-radius: 50%; }
+    nav a { color: var(--soluk); text-decoration: none; margin-left: 22px; font-size: 15px; }
+    nav a:hover { color: var(--yazi); }
+    .kahraman { text-align: center; padding: 70px 0 60px; }
+    .kahraman img { width: 132px; height: 132px; border-radius: 50%; box-shadow: 0 0 0 6px rgba(94,234,212,.12), 0 20px 60px rgba(0,0,0,.45); }
+    h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.1; margin: 28px 0 14px; letter-spacing: -.02em; }
+    h1 span { background: linear-gradient(90deg, var(--vurgu), #38bdf8); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .alt { color: var(--soluk); font-size: clamp(16px, 2.2vw, 20px); max-width: 640px; margin: 0 auto 34px; }
+    .dugmeler { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .dugme {
+      display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; border-radius: 999px;
+      font-weight: 700; text-decoration: none; transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .dugme:hover { transform: translateY(-2px); }
+    .ana { background: linear-gradient(90deg, var(--vurgu2), #14b8a6); color: #fff; box-shadow: 0 10px 30px rgba(20,184,166,.35); }
+    .ikincil { border: 1px solid var(--cizgi); background: var(--kart); }
+    .rozetler { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 26px; color: var(--soluk); font-size: 14px; }
+    .rozetler span { padding: 6px 12px; border: 1px solid var(--cizgi); border-radius: 999px; }
+    section { padding: 46px 0; }
+    h2 { font-size: 28px; margin: 0 0 8px; letter-spacing: -.01em; }
+    .aciklama { color: var(--soluk); margin: 0 0 26px; }
+    .izgara { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .kart { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 18px; padding: 22px; }
+    .kart .ikon { font-size: 28px; }
+    .kart h3 { margin: 10px 0 6px; font-size: 18px; }
+    .kart p { margin: 0; color: var(--soluk); font-size: 15px; }
+    .guvenlik .kart { border-color: rgba(94,234,212,.18); }
+    ol.kurallar { counter-reset: k; list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    ol.kurallar li { counter-increment: k; background: var(--kart); border: 1px solid var(--cizgi); border-radius: 14px; padding: 14px 16px 14px 56px; position: relative; }
+    ol.kurallar li::before { content: counter(k); position: absolute; left: 16px; top: 12px; width: 28px; height: 28px; border-radius: 50%;
+      display: grid; place-items: center; font-weight: 800; font-size: 14px; background: rgba(94,234,212,.15); color: var(--vurgu); }
+    .yedek { text-align: center; background: linear-gradient(135deg, rgba(234,88,12,.16), rgba(12,148,150,.12)); border: 1px solid var(--cizgi); border-radius: 22px; padding: 34px 24px; }
+    .yedek h2 { margin-bottom: 10px; }
+    .yedek p { color: var(--soluk); max-width: 620px; margin: 0 auto 22px; }
+    footer { color: var(--soluk); font-size: 14px; text-align: center; padding: 40px 0 50px; border-top: 1px solid var(--cizgi); margin-top: 30px; }
+    @media (max-width: 600px) { nav { display: none; } .kahraman { padding-top: 40px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .dugme { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="kap">
+    <header>
+      <a class="marka" href="#"><img src="logo.png" alt="">DevHarbor</a>
+      <nav>
+        <a href="#topics">Topics</a>
+        <a href="#safety">Safety</a>
+        <a href="#rules">Rules</a>
+        <a href="#news">News</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="kahraman">
+        <img src="logo.png" alt="DevHarbor logo">
+        <h1>A global <span>harbor</span><br>for developers</h1>
+        <p class="alt">Ask questions, share projects, find jobs and build together with programmers from all over the world, in a safe, moderated Telegram community.</p>
+        <div class="dugmeler">
+          <a class="dugme ana" href="https://t.me/devharborhq" rel="noopener">⚓ Join DevHarbor</a>
+          <a class="dugme ikincil" href="https://t.me/+CaTJLxcwYGlmYzY0" rel="noopener">📢 Announcements</a>
+        </div>
+        <div class="rozetler"><span>🌍 Global · English</span><span>🛡 Verified joins</span><span>🦠 Malware-scanned files</span><span>💸 Free forever</span></div>
+      </div>
+
+      <section id="topics">
+        <h2>Topics</h2>
+        <p class="aciklama">Every conversation has its place.</p>
+        <div class="izgara">
+          <div class="kart"><div class="ikon">❓</div><h3>Help &amp; Q&amp;A</h3><p>Stuck on a bug? Share the code and the full error, get answers fast.</p></div>
+          <div class="kart"><div class="ikon">💡</div><h3>Projects</h3><p>Show what you're building. Open source, side projects, experiments.</p></div>
+          <div class="kart"><div class="ikon">💼</div><h3>Jobs</h3><p>Hiring or looking for work. Structured posts, no scams.</p></div>
+          <div class="kart"><div class="ikon">📚</div><h3>Resources</h3><p>Tutorials, docs, courses and tools worth bookmarking.</p></div>
+          <div class="kart"><div class="ikon">☕</div><h3>Off-topic</h3><p>Tech news, desk setups, memes. Take a break.</p></div>
+          <div class="kart"><div class="ikon">📣</div><h3>Announcements</h3><p>Official news, events and important changes.</p></div>
+        </div>
+      </section>
+
+      <section id="safety" class="guvenlik">
+        <h2>Built to stay safe</h2>
+        <p class="aciklama">Our own guard bot, @DevHarborGuardBot, protects every member.</p>
+        <div class="izgara">
+          <div class="kart"><div class="ikon">✅</div><h3>Human check</h3><p>Every join request passes a quick image check. Bots and spam accounts stay out.</p></div>
+          <div class="kart"><div class="ikon">🦠</div><h3>File scanning</h3><p>Files are scanned by 60+ antivirus engines before anyone can download them.</p></div>
+          <div class="kart"><div class="ikon">🔗</div><h3>Link protection</h3><p>Malicious, brand-new and look-alike scam sites are removed automatically.</p></div>
+          <div class="kart"><div class="ikon">🚨</div><h3>Spam &amp; raid shield</h3><p>Floods, scam messages and mass raids are stopped in seconds.</p></div>
+        </div>
+      </section>
+
+      <section id="rules">
+        <h2>Rules, in short</h2>
+        <p class="aciklama">Simple rules for a friendly harbor.</p>
+        <ol class="kurallar">
+          <li>Be respectful. No harassment, hate speech or personal attacks.</li>
+          <li>English is the common language.</li>
+          <li>Use the right topic for your post.</li>
+          <li>No piracy: no cracks, keygens or illegally shared paid content.</li>
+          <li>No malware and no requests for "hacking tools".</li>
+          <li>No spam, scams, crypto pumps or unsolicited ads.</li>
+          <li>Share files through @DevHarborGuardBot so they can be scanned.</li>
+          <li>No shortened links. Post the full URL.</li>
+          <li>Don't DM members without their permission. Admins will never DM you first.</li>
+        </ol>
+      </section>
+
+      <section id="news">
+        <div class="yedek">
+          <h2>📌 Always find your way back</h2>
+          <p>This page always shows the current link to DevHarbor. If the group ever moves, the new link will appear here and in our announcements channel first. Bookmark it.</p>
+          <div class="dugmeler">
+            <a class="dugme ana" href="https://t.me/devharborhq" rel="noopener">⚓ Join DevHarbor</a>
+            <a class="dugme ikincil" href="https://t.me/+CaTJLxcwYGlmYzY0" rel="noopener">📢 Follow announcements</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>⚓ DevHarbor · A global community for developers and programmers</footer>
+  </div>
+</body>
+</html>
