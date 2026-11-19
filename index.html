@@ -7,7 +7,13 @@
   <meta name="description" content="DevHarbor is a global Telegram community for developers and programmers. Ask, share, hire and build together, in a safe, moderated harbor.">
   <meta property="og:title" content="DevHarbor · Global Developer Community">
   <meta property="og:description" content="Ask, share, hire and build together. Verified joins, malware-scanned files.">
-  <meta property="og:image" content="logo.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://delilzagros.github.io/devharbor/">
+  <meta property="og:image" content="https://delilzagros.github.io/devharbor/promo/1-tanisma.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://delilzagros.github.io/devharbor/promo/1-tanisma.png">
   <meta name="theme-color" content="#08162f">
   <link rel="icon" href="logo.png">
   <style>
@@ -59,6 +65,10 @@
     ol.kurallar li { counter-increment: k; background: var(--kart); border: 1px solid var(--cizgi); border-radius: 14px; padding: 14px 16px 14px 56px; position: relative; }
     ol.kurallar li::before { content: counter(k); position: absolute; left: 16px; top: 12px; width: 28px; height: 28px; border-radius: 50%;
       display: grid; place-items: center; font-weight: 800; font-size: 14px; background: rgba(94,234,212,.15); color: var(--vurgu); }
+    .galeri { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .galeri img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid var(--cizgi);
+      transition: transform .15s ease; }
+    .galeri a:hover img { transform: translateY(-3px); }
     .yedek { text-align: center; background: linear-gradient(135deg, rgba(234,88,12,.16), rgba(12,148,150,.12)); border: 1px solid var(--cizgi); border-radius: 22px; padding: 34px 24px; }
     .yedek h2 { margin-bottom: 10px; }
     .yedek p { color: var(--soluk); max-width: 620px; margin: 0 auto 22px; }
@@ -129,6 +139,18 @@
           <li>No shortened links. Post the full URL.</li>
           <li>Don't DM members without their permission. Admins will never DM you first.</li>
         </ol>
+      </section>
+
+      <section id="share">
+        <h2>Spread the word</h2>
+        <p class="aciklama">Know a developer who'd like DevHarbor? Share one of these.</p>
+        <div class="izgara galeri">
+          <a href="promo/1-tanisma.png"><img src="promo/1-tanisma.png" alt="Meet DevHarbor" loading="lazy"></a>
+          <a href="promo/2-guvenlik.png"><img src="promo/2-guvenlik.png" alt="No spam, no scams" loading="lazy"></a>
+          <a href="promo/3-projeler.png"><img src="promo/3-projeler.png" alt="Show your project" loading="lazy"></a>
+          <a href="promo/4-soru-cevap.png"><img src="promo/4-soru-cevap.png" alt="Help and Q&amp;A" loading="lazy"></a>
+          <a href="promo/5-isler.png"><img src="promo/5-isler.png" alt="Jobs" loading="lazy"></a>
+        </div>
       </section>
 
       <section id="news">
