@@ -32,9 +32,13 @@ def api(token: str, yontem: str, **veri) -> dict:
 
 
 def main() -> int:
-    token = os.environ["BOT_TOKEN"]
-    kanal = os.environ["KAYIT_KANAL_ID"]
-    sahip = os.environ["SAHIP_ID"]
+    # Windows PowerShell ile girilen değerlerin başına görünmez BOM (﻿) ve sonuna satır sonu gelebilir
+    def ortam(ad: str) -> str:
+        return os.environ[ad].strip().lstrip("﻿").strip()
+
+    token = ortam("BOT_TOKEN")
+    kanal = ortam("KAYIT_KANAL_ID")
+    sahip = ortam("SAHIP_ID")
 
     sohbet = api(token, "getChat", chat_id=kanal)["result"]
     metin = (sohbet.get("pinned_message") or {}).get("text", "")
